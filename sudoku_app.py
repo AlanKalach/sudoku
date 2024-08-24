@@ -3,7 +3,7 @@ import pandas as pd
 
 def solve_sudoku_from_csv(file):
     # Your original Sudoku-solving functions go here
-    def horizontal():
+    def horizontal(file):
         df = pd.read_csv(file, header=None)
         lista1 = df.values.tolist()  # Convert DataFrame to list of lists
         return lista1
@@ -303,15 +303,15 @@ def solve_sudoku_from_csv(file):
         k=0
         for i in lista1:
             if k==3 or k==6:
-                print("-"*20)
+                st.write("-"*20)
             k+=1
             l=0
             for j in i:
-                print("{:2}".format(j),end="")
+                st.write("{:2}".format(j),end="")
                 if l==2 or l==5:
-                    print("|",end="")
+                    st.write("|",end="")
                 l+=1
-            print()
+            st.write()
                 
     def reducir_listas_horizontal(lista):
         for i in range(len(lista)):
@@ -321,7 +321,7 @@ def solve_sudoku_from_csv(file):
                 if len(x)==2:
                     for j in range(len(lista[i])):
                         if len(lista[i][j])==2 and i!=j and x==j:
-                            print("Horizontal {}".format(i))
+                            st.write("Horizontal {}".format(i))
                 k+=1
 
     def reducir_listas_vertical(lista):
@@ -332,7 +332,7 @@ def solve_sudoku_from_csv(file):
                 if len(x)==2:
                     for j in range(len(lista[i])):
                         if len(lista[i][j])==2 and i!=j and x==j:
-                            print("Vertical {}".format(i))
+                            st.write("Vertical {}".format(i))
                 k+=1
 
     def reducir_listas_cuadros(lista):
@@ -343,12 +343,12 @@ def solve_sudoku_from_csv(file):
                 if len(x)==2:
                     for j in range(len(lista[i])):
                         if len(lista[i][j])==2 and i!=j and x==j:
-                            print("Cuadros {}".format(i))
+                            st.write("Cuadros {}".format(i))
                 k+=1
                         
 
-    def program():
-        lista1=horizontal()
+    def program(file):
+        lista1=horizontal(file)
         k=0
         for i in lista1:
             for j in i:
@@ -382,34 +382,29 @@ def solve_sudoku_from_csv(file):
         lista1=horizontal_2(listai)
         if x==-1:
             imprimir(lista1)
-            print("Vueltas: {}".format(y))
-            print("Casillas Dadas: {}".format(k))
+            st.write("Vueltas: {}".format(y))
+            st.write("Casillas Dadas: {}".format(k))
         else:
             m=0
             for i in lista1:
                 for j in i:
                     if j!=0:
                         m+=1
-            print("No se pudo resolver")
+            st.write("No se pudo resolver")
             imprimir(lista1)
-            print("Casillas Dadas: {}".format(k))
-            print("Numeros Encontrados: {}".format(m-k))
+            st.write("Casillas Dadas: {}".format(k))
+            st.write("Numeros Encontrados: {}".format(m-k))
             reducir_listas_horizontal(lista5)
             reducir_listas_vertical(lista6)
             reducir_listas_cuadros(lista7)
 
-    program()
+    program(file)
 
-    # Your original Sudoku-solving functions go here
-    return horizontal()
 
 st.title("Sudoku Solver")
 uploaded_file = st.file_uploader("Upload a CSV file with Sudoku puzzle", type=["csv"])
 
 if uploaded_file is not None:
     # Read the file
-    solution = solve_sudoku_from_csv(uploaded_file)
-
-    st.write("Solved Sudoku:")
-    st.write(solution)
+    solve_sudoku_from_csv(uploaded_file)
 
