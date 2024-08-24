@@ -3,13 +3,9 @@ import pandas as pd
 
 def solve_sudoku_from_csv(file):
     # Your original Sudoku-solving functions go here
-    def horizontal():
-        lista1 = []
-        for line in file:
-            temp_list = line.split(",")
-            for i in range(len(temp_list)):
-                temp_list[i] = eval(temp_list[i])
-            lista1.append(temp_list)
+    def horizontal(file):
+        df = pd.read_csv(file, header=None)
+        lista1 = df.values.tolist()  # Convert DataFrame to list of lists
         return lista1
     def horizontal_2(listai):
         lista1=[]
@@ -412,8 +408,7 @@ uploaded_file = st.file_uploader("Upload a CSV file with Sudoku puzzle", type=["
 
 if uploaded_file is not None:
     # Read the file
-    df = pd.read_csv(uploaded_file, header=None)
-    solution = solve_sudoku_from_csv(df)
+    solution = solve_sudoku_from_csv(uploaded_file)
 
     st.write("Solved Sudoku:")
     st.write(solution)
