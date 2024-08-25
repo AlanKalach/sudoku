@@ -300,6 +300,21 @@ def solve_sudoku_from_csv(file):
         return x
 
     def imprimir(lista1):
+        k = 0
+        for i in lista1:
+            if k == 3 or k == 6:
+                st.write("-" * 21)
+            k += 1
+            row_str = ""
+            l = 0
+            for j in i:
+                row_str += "{:2}".format(j)
+                if l == 2 or l == 5:
+                    row_str += " |"
+                l += 1
+            st.write(row_str)
+    
+    def imprimir(lista1):
         k=0
         for i in lista1:
             if k==3 or k==6:
@@ -401,7 +416,7 @@ def solve_sudoku_from_csv(file):
     program(file)
 
 
-st.title("Sudoku Solver")
+st.title("Sudoku Solver by Alan Kalach (2015)
 uploaded_file = st.file_uploader("Upload a CSV file with Sudoku puzzle", type=["csv"])
 
 if uploaded_file is not None:
