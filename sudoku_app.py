@@ -2,10 +2,9 @@ import streamlit as st
 import pandas as pd
 
 def solve_sudoku_from_csv(file):
-    # Your original Sudoku-solving functions go here
     def horizontal(file):
         df = pd.read_csv(file, header=None)
-        lista1 = df.values.tolist()  # Convert DataFrame to list of lists
+        lista1 = df.values.tolist() 
         return lista1
     def horizontal_2(listai):
         lista1=[]
