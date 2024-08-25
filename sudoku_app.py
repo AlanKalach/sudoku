@@ -403,6 +403,12 @@ def solve_sudoku_from_csv(file):
 
 
 st.title("Sudoku Solver by Alan Kalach (2015)")
+st.markdown("""
+**Upload a .csv file with a 9x9 grid of Sudoku input for the solver.**
+
+- For the cells where you have a value, input the number.
+- For the empty cells, input `0`.
+""")
 uploaded_file = st.file_uploader("Upload a CSV file with Sudoku puzzle", type=["csv"])
 
 if uploaded_file is not None:
