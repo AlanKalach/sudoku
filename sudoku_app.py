@@ -317,18 +317,20 @@ def solve_sudoku_from_csv(file):
 
     
     def imprimir(lista1):
-        k=0
+        output = ""
+        k = 0
         for i in lista1:
-            if k==3 or k==6:
-                st.write("-"*20)
-            k+=1
-            l=0
+            if k == 3 or k == 6:
+                output += "-" * 21 + "\n"
+            k += 1
+            l = 0
             for j in i:
-                st.write("{:2}".format(j),end="")
-                if l==2 or l==5:
-                    st.write("|",end="")
-                l+=1
-            st.write()
+                output += "{:2}".format(j)
+                if l == 2 or l == 5:
+                    output += " |"
+                l += 1
+            output += "\n"
+        st.text(output)
                 
     def reducir_listas_horizontal(lista):
         for i in range(len(lista)):
