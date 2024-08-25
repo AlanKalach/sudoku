@@ -300,7 +300,7 @@ def solve_sudoku_from_csv(file):
         return x
 
     def imprimir(lista1):
-        output = " "
+        output = "\n"
         k = 0
         for i in lista1:
             if k == 3 or k == 6:
