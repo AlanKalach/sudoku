@@ -416,7 +416,7 @@ def solve_sudoku_from_csv(file):
     program(file)
 
 
-st.title("Sudoku Solver by Alan Kalach (2015)
+st.title("Sudoku Solver by Alan Kalach (2015)")
 uploaded_file = st.file_uploader("Upload a CSV file with Sudoku puzzle", type=["csv"])
 
 if uploaded_file is not None:
