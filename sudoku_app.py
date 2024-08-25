@@ -300,28 +300,11 @@ def solve_sudoku_from_csv(file):
         return x
 
     def imprimir(lista1):
+        output = " "
         k = 0
         for i in lista1:
             if k == 3 or k == 6:
-                st.markdown("-" * 21)
-            
-            k += 1
-            row_str = ""
-            l = 0
-            for j in i:
-                row_str += "{:2}".format(j)
-                if l == 2 or l == 5:
-                    row_str += " |"
-                l += 1
-            st.markdown(row_str)
-
-    
-    def imprimir(lista1):
-        output = ""
-        k = 0
-        for i in lista1:
-            if k == 3 or k == 6:
-                output += "-" * 21 + "\n"
+                output += "-" * 23 + "\n"
             k += 1
             l = 0
             for j in i:
